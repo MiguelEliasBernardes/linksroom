@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Password;
 
@@ -29,5 +30,12 @@ class RegisterRequest extends FormRequest
             'password' => ['required',Password::defaults()],
             'image' => ['image']
         ];
+    }
+
+    public function TryToRegister(){
+
+        $user = new User();
+
+
     }
 }
