@@ -1,7 +1,18 @@
 <x-layout.app>
 
-    <div>
-        <h1>Olá Teste</h1>
-    </div>
+    <form action="{{ route('login.submit') }}" method="POST">
+        @csrf
+        <input type="email" name="email">
+        <input type="text" name="password">
+        <button type="submit">Enviar</button>
+    </form>
+
+    @error('email')
+        error email
+    @enderror
+
+    @error('password')
+        error password
+    @enderror
 
 </x-layout.app>
