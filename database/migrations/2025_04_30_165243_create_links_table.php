@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('links', function (Blueprint $table) {
             $table->id();
             $table->string('image')->nullable();
+            $table->string('name')->nullable();
+            $table->string('link')->nullable();
+            $table->string('streaming')->nullable();
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
