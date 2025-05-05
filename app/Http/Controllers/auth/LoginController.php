@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\auth;
 
+
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -17,15 +19,11 @@ class LoginController extends Controller
 
     public function login(LoginRequest $request): RedirectResponse{
 
-
         if(
             $user = User::query()
             ->where("email","=", request()->email)
             ->first()
         ){
-
-            dd($user);
-
             if(Hash::check(request()->password, $user->password)){
                 auth()->login($user);
 
@@ -35,10 +33,5 @@ class LoginController extends Controller
 
         return back()->with("error","não encontrado");
 
-        {
-            return to_route('dashboard');
-        }
-
-        return back()->with(['message' => 'erro ao logar']);
     }
 }

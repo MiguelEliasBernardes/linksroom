@@ -1,6 +1,6 @@
 <x-layout.app>
 
-    <form action="{{ route('login.submit') }}" method="POST">
+    <form action="{{ route('login.submit') }}" method="post">
         @csrf
         <input type="email" name="email">
         <input type="text" name="password">
