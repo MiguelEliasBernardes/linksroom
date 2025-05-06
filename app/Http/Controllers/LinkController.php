@@ -4,16 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreLinkRequest;
 use App\Models\Link;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class LinkController extends Controller
 {
 
-    public function create(){
+    public function create(): View{
         return view("links.create");
     }
 
-    public function store(StoreLinkRequest $request){
+    public function store(StoreLinkRequest $request): RedirectResponse{
 
         Link::query()->create(
             array_merge(
