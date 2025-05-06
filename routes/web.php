@@ -22,9 +22,11 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
 
     Route::get('/logout', LogoutController::class)->name('logout');
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
     Route::get('/links/create', [LinkController::class,'create'])->name('links.create');
     Route::post('/links/create', [LinkController::class,'store']);
 
 });
+
+Route::get('/', [LoginController::class,'index'])->name('welcome');
