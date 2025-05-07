@@ -1,5 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap');
 @import 'tailwindcss';
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 @plugin "daisyui";
 
 @source "../views";
@@ -11,4 +11,8 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+    --space : 'Space Grotesk';
+    --outfit : 'Outfit';
+    --color-container : #0A0908;
+    --scure : #110F0E;
 }
