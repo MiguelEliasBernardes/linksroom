@@ -17,13 +17,15 @@ class LinkController extends Controller
 
     public function store(StoreLinkRequest $request): RedirectResponse{
 
-        $file = $request->image;
-        $file->store("link-img");
+        $file = $request->file('image');
+        $path = $file->store("link-img" , "public");
 
         Link::query()->create(
             array_merge(
                 $request->validated(),
-                        ["user_id" =>auth()->id()]
+                        ["user_id" =>auth()->id(),
+                        "image" => $path
+                        ]
                     )
                 );
 

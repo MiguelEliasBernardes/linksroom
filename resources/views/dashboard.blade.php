@@ -41,7 +41,7 @@
                         </svg>
 
                         <div class="bg-(--scure) w-3/4 flex gap-10 p-4 rounded-3xl">
-                            <div class="bg-[url({{$link->image}})] w-16 h-16 rounded-xl"></div>
+                            <div style="background-image: url({{ asset('storage/' . $link->image)}})" class=" bg-cover w-16 h-16 rounded-xl"></div>
 
                             <div class="w-2/3 font-(family-name:outfit)  font-semibold">
                                 <div class="flex gap-4">
