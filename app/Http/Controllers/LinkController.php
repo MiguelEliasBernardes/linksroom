@@ -17,6 +17,9 @@ class LinkController extends Controller
 
     public function store(StoreLinkRequest $request): RedirectResponse{
 
+        $file = $request->image;
+        $file->store("link-img");
+
         Link::query()->create(
             array_merge(
                 $request->validated(),

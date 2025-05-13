@@ -3,6 +3,10 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\UploadedFile;
+/**
+ * @property-read UploadedFile $image
+ */
 
 class StoreLinkRequest extends FormRequest
 {
@@ -23,7 +27,7 @@ class StoreLinkRequest extends FormRequest
     {
         return [
             "name" => ["required","string", "min:3"],
-            "image" => ["string"],
+            "image" => ["nullable", "image"],
             "link" => ["required","string"],
             "streaming" => ["required", "string"]
         ];

@@ -14,18 +14,18 @@
                     <div class="w-8 h-0.5 mt-0.5 bg-(--orange)"></div>
                 </div>
 
-                <div class="flex gap-3 bg-(--scure) text-(--orange) rounded-3xl p-3.5 hover:text-white transition-all duration-100 font-(family-name:--outfit) font-bold">
+                <label class="flex gap-3 bg-(--scure) text-(--orange) rounded-3xl p-3.5 hover:text-white transition-all duration-100 font-(family-name:--outfit) font-bold " for="add-link-modal">
                     <svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" class="" xmlns="http://www.w3.org/2000/svg" color="white">
                         <path d="M8 12H12M16 12H12M12 12V8M12 12V16" stroke="#ED712E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             </path><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#ED712E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             </path>
                     </svg>
 
-                    <a href="">Adicionar Link</a>
-                </div>
+                    Adicionar Link
+                </label>
             </div>
 
-            <ul class="flex flex-col gap-3 w-full  max-h-4/6 ">
+            <ul class="flex flex-col gap-3 w-full  max-h-5/6 overflow-y-auto">
                 @foreach ($links as $link)
 
                     <li class="mt-10 pl-6 flex gap-7 items-center">
@@ -41,7 +41,7 @@
                         </svg>
 
                         <div class="bg-(--scure) w-3/4 flex gap-10 p-4 rounded-3xl">
-                            <div class="bg-red-500 w-16 h-16 rounded-xl"></div>
+                            <div class="bg-[url({{$link->image}})] w-16 h-16 rounded-xl"></div>
 
                             <div class="w-2/3 font-(family-name:outfit)  font-semibold">
                                 <div class="flex gap-4">
@@ -76,6 +76,8 @@
         @include('components.nav')
 
     </main>
+
+    @include('components.modal')
 
 
 </x-layout.app>
