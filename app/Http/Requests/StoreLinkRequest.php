@@ -27,7 +27,7 @@ class StoreLinkRequest extends FormRequest
     {
         return [
             "name" => ["required","string", "min:3"],
-            "image" => ["nullable", "image"],
+            "image" => ["required", "image"],
             "link" => ["required","string"],
             "streaming" => ["required", "string"]
         ];

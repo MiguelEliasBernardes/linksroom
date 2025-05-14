@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreLinkRequest;
+use App\Http\Requests\UpdateLinkRequest;
 use App\Models\Link;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -29,6 +30,55 @@ class LinkController extends Controller
                     )
                 );
 
-        return to_route("dashboard");
+        return to_route("dashboard")->with([
+                "status" => "success",
+                "message" => "Link cadastrado com sucesso"
+        ]);
+    }
+
+    public function delete(Link $link): RedirectResponse{
+
+        try{
+            $link->delete();
+
+            return to_route("dashboard")->with([
+                "status" => "success",
+                "message"=> "Link Excluído com Sucesso"]);
+
+        }catch(\Exception $e){
+            return to_route("dashboard")->with([
+                "status" => "sucesss",
+                "error" => $e->getMessage()]);
+        }
+    }
+
+    public function edit(int $id): View{
+
+        $link = Link::where("id","=", $id)->first();
+
+        return view("links.edit",["link" => $link]);
+    }
+
+
+    public function update(UpdateLinkRequest $request, Link $link): RedirectResponse{
+
+        $file = $request->file('image');
+
+        if($file != null){
+            $path = $file->store("link-img" , "public");
+        }
+
+        Link::query()->where("id", $link->id)->update(
+            array_merge(
+                $request->validated(),
+                $file != null ? ["image" => $path] : []
+            )
+        );
+
+        return to_route("dashboard")->with([
+                                            "status" => "success",
+                                            "message" => "Link atualizado!"
+                                        ]);
+
     }
 }
