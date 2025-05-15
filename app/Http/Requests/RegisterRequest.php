@@ -44,6 +44,19 @@ class RegisterRequest extends FormRequest
         ];
     }
 
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'O nome é obrigatório.',
+            'email.required' => 'O e-mail é obrigatório.',
+            'email.email' => 'Formato de e-mail inválido.',
+            'email.unique' => 'Este e-mail já está em uso.',
+            'bio.string' => 'A bio deve ser um texto.',
+            'image.required' => 'A imagem é obrigatória.',
+            'image.image' => 'O arquivo enviado não é uma imagem válida.',
+        ];
+    }
+
     public function TryToRegister(): bool{
 
         $user = new User();

@@ -51,7 +51,7 @@
                         </label>
 
                         @error('email')
-                            <p class="text-error">E-mail inválido</p>
+                            <p class="text-error">{{$message}}</p>
                         @enderror
                     </div>
 

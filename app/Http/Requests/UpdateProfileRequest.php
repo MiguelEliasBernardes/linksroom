@@ -28,4 +28,6 @@ class UpdateProfileRequest extends FormRequest
             'image' => ['required','image'],
         ];
     }
+
+
 }
