@@ -30,7 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/links/{link}', [LinkController::class,'delete'])->name('links.delete');
     Route::get('/links/{link}', [LinkController::class,'edit'])->name('links.edit');
     Route::put('/links/{link}', [LinkController::class, 'update'])->name('links.update');
-
+    Route::patch('/links/{link}/up', [LinkController::class, 'up'])->name('links.up');
+    Route::patch('/links/{link}/down', [LinkController::class, 'down'])->name('links.down');
 });
 
 Route::get('/', [LoginController::class,'index'])->name('welcome');

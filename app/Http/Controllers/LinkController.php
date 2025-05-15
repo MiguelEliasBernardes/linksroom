@@ -21,11 +21,15 @@ class LinkController extends Controller
         $file = $request->file('image');
         $path = $file->store("link-img" , "public");
 
+        $lastOrder = Link::where('user_id', auth()->id())->max('sort') ?? 0;
+        $newOrder = $lastOrder + 1;
+
         Link::query()->create(
             array_merge(
                 $request->validated(),
                         ["user_id" =>auth()->id(),
-                        "image" => $path
+                        "image" => $path,
+                        "sort" => $newOrder
                         ]
                     )
                 );
@@ -80,5 +84,19 @@ class LinkController extends Controller
                                             "message" => "Link atualizado!"
                                         ]);
 
+    }
+
+    public function up(Link $link){
+
+        $link->moveUp();
+
+        return back();
+
+    }
+
+    public function down(Link $link){
+        $link->moveDown();
+
+        return back();
     }
 }

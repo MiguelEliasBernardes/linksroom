@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('link')->nullable();
             $table->string('streaming')->nullable();
+            $table->unsignedTinyInteger('sort')->default(0);
             $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });
