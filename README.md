@@ -11,47 +11,68 @@ Sistema simples para gerenciamento de links, feito com **Laravel**, **SQLite**, 
 ```bash
 git clone https://github.com/MiguelEliasBernardes/linksroom.git
 cd linksroom
-2. Instale as dependências
-bash
-Copiar
-Editar
+```
+
+### 2. Instale as dependências
+
+```bash
 composer install
 npm install
-3. Configure o ambiente
-bash
-Copiar
-Editar
+```
+
+### 3. Configure o ambiente
+
+```bash
 cp .env.example .env
 php artisan key:generate
-4. Configure o banco de dados SQLite
+```
+
+### 4. Configure o banco de dados SQLite
+
 Crie o arquivo do banco de dados:
 
-bash
-Copiar
-Editar
+```bash
 touch database/database.sqlite
-No arquivo .env, altere as configurações de banco:
+```
 
-env
-Copiar
-Editar
+Edite o arquivo `.env` e ajuste a configuração do banco:
+
+```env
 DB_CONNECTION=sqlite
 DB_DATABASE=/caminho/absoluto/para/database/database.sqlite
-💡 Substitua /caminho/absoluto/para/ pelo caminho real do seu projeto.
+```
 
-5. Execute as migrations
-bash
-Copiar
-Editar
+> 💡 Substitua `/caminho/absoluto/para/` pelo caminho real até o arquivo `database.sqlite`.
+
+### 5. Execute as migrations
+
+```bash
 php artisan migrate
-6. Compile os assets com Tailwind + DaisyUI
-bash
-Copiar
-Editar
+```
+
+### 6. Compile os assets com Tailwind + DaisyUI
+
+```bash
 npm run dev
-7. Inicie o servidor
-bash
-Copiar
-Editar
+```
+
+### 7. Inicie o servidor
+
+```bash
 php artisan serve
-Acesse o sistema em: http://localhost:8000
+```
+
+Acesse o sistema em: [http://localhost:8000](http://localhost:8000)
+
+---
+
+## 🛠️ Tecnologias
+
+- Laravel
+- SQLite
+- Tailwind CSS
+- DaisyUI
+
+---
+
+Feito com 💻 por [Miguel Elias Bernardes](https://github.com/MiguelEliasBernardes)
